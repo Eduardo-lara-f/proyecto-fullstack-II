@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasteleria Mil Sabores - Registro</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-custom-bg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Pasteleria Mil Sabores</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Productos</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="registro.html">Registro</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <section class="container registration-form">
+            <div class="row">
+                <div class="col-lg-12 mt-3 border p-3 rounded-3">
+                    <h1 class="text-center">Registro</h1>
+                    
+                    <form id="registroForm">
+                        <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrasena" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena" required>
+                        </div>  
+                        <div class="mb-3">
+                            <label for="repetirContrasena" class="form-label">Repite Contraseña</label>
+                            <input type="password" class="form-control" id="repetirContrasena" required>
+                        </div>     
+                        <div class="mb-3">
+                            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="fechaNacimiento" required>
+                        </div>     
+                        <div class="mb-3">
+                            <label for="codigoPromocional" class="form-label">Código Promocional (Opcional)</label>
+                            <input type="text" class="form-control" id="codigoPromocional">
+                        </div>     
+                        
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-success">Registrar</button>
+                            <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">Limpiar</button>
+                        </div>                  
+                    </form>
+                    
+                    <div id="mensajeResultado" class="alert mt-3 d-none"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        const form = document.getElementById("registroForm");
+        const mensajeResultado = document.getElementById("mensajeResultado");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); 
+
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const correo = document.getElementById("correo").value;
+            const contrasena = document.getElementById("contrasena").value;
+            const repetirContrasena = document.getElementById("repetirContrasena").value;
+            const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+            const codigoPromocional = document.getElementById("codigoPromocional").value.trim();
+
+            let errores = [];
+
+            if (contrasena !== repetirContrasena) {
+                errores.push("Las contraseñas no coinciden.");
+            }
+
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            if (!emailRegex.test(correo)) {
+                errores.push("Por favor, introduce un correo electrónico válido.");
+            }
+
+            if (errores.length > 0) {
+                mensajeResultado.classList.remove("d-none", "alert-success");
+                mensajeResultado.classList.add("alert-danger");
+                mensajeResultado.innerHTML = "<strong>Error:</strong><br>" + errores.join("<br>");
+            } else {
+                mensajeResultado.classList.remove("d-none", "alert-danger");
+                mensajeResultado.classList.add("alert-success");
+                mensajeResultado.innerHTML = `<strong>¡Registro exitoso!</strong><br>
+                    Nombre: ${nombre}<br>
+                    Apellido: ${apellido}<br>
+                    Correo: ${correo}<br>
+                    Fecha de Nacimiento: ${fechaNacimiento}<br>
+                    ${codigoPromocional ? 'Código Promocional: ' + codigoPromocional : ''}`;
+            }
+        });
+
+        function limpiarFormulario() {
+            form.reset(); 
+            mensajeResultado.classList.add("d-none"); 
+            mensajeResultado.classList.remove("alert-success", "alert-danger");
+        }
+    </script>
+</body>
+</html>

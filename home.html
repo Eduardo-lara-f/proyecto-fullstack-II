@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <nav id="barra" class="navbar navbar-expand-lg navbar-custom-bg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pasteleria Mil Sabores</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Productos</a> </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Registro</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <h1>Catálogo de Productos</h1>
+
+  <div class="cart-icon" onclick="toggleCarrito()">🛒</div>
+
+  <div class="filtro-container">
+    <label for="filtro-categoria">Filtrar por categoría:</label>
+    <select id="filtro-categoria">
+      <option value="todos">Todas las categorías</option>
+      <option value="Tortas Cuadradas">Tortas Cuadradas</option>
+      <option value="Tortas Circulares">Tortas Circulares</option>
+      <option value="Postres Individuales">Postres Individuales</option>
+      <option value="Productos Sin Azúcar">Productos Sin Azúcar</option>
+      <option value="Pastelería Tradicional">Pastelería Tradicional</option>
+      <option value="Productos Sin Gluten">Productos Sin Gluten</option>
+      <option value="Productos Vegana">Productos Vegana</option>
+      <option value="Tortas Especiales">Tortas Especiales</option>
+    </select>
+  </div>
+
+  <div class="catalogo">
+    <div class="producto" data-categoria="Tortas Cuadradas">
+      <img src="https://brigams.pe/wp-content/uploads/chocolate-2.jpg" alt="Torta Cuadrada de Chocolate">
+      <h3>Torta Cuadrada de Chocolate</h3>
+      <p>Deliciosa torta con capas de ganache y avellanas.</p>
+      <div class="precio">$45.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Cuadrada de Chocolate', 45000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Tortas Cuadradas">
+      <img src="https://i.ytimg.com/vi/r46pCwagh5Q/maxresdefault.jpg" alt="Torta Cuadrada de Frutas">
+      <h3>Torta Cuadrada de Frutas</h3>
+      <p>Frutas frescas y crema chantilly sobre bizcocho de vainilla.</p>
+      <div class="precio">$50.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Cuadrada de Frutas', 50000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Tortas Circulares">
+      <img src="https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/9629f9eccd9387d2fdcd6469119b50c0.png" alt="Torta Circular de Vainilla">
+      <h3>Torta Circular de Vainilla</h3>
+      <p>Bizcocho clásico de vainilla con crema pastelera.</p>
+      <div class="precio">$40.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Circular de Vainilla', 40000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Tortas Circulares">
+      <img src="https://cdn0.recetasgratis.net/es/posts/8/0/2/torta_milhojas_24208_orig.jpg" alt="Torta Circular de Manjar">
+      <h3>Torta Circular de Manjar</h3>
+      <p>Torta con manjar y nueces, un clásico chileno.</p>
+      <div class="precio">$42.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Circular de Manjar', 42000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Postres Individuales">
+      <img src="https://imag.bonviveur.com/mousse-de-chocolate-negro-casera.jpg" alt="Mousse de Chocolate">
+      <h3>Mousse de Chocolate</h3>
+      <p>Postre individual cremoso hecho con chocolate premium.</p>
+      <div class="precio">$5.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Mousse de Chocolate', 5000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Postres Individuales">
+      <img src="https://binga.cl/cdn/shop/articles/tiramisu-receta-original.jpg?v=1644419306" alt="Tiramisú Clásico">
+      <h3>Tiramisú Clásico</h3>
+      <p>Capas de café, mascarpone y cacao. Un clásico italiano.</p>
+      <div class="precio">$5.500 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Tiramisú Clásico', 5500)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Sin Azúcar">
+      <img src="https://mandolina.co/wp-content/uploads/2023/07/Torta-de-Naranja-1200x720.png" alt="Torta Sin Azúcar de Naranja">
+      <h3>Torta Sin Azúcar de Naranja</h3>
+      <p>Torta ligera y deliciosa, endulzada naturalmente.</p>
+      <div class="precio">$48.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Sin Azúcar de Naranja', 48000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Sin Azúcar">
+      <img src="https://peopleenespanol.com/thmb/8vzve3hmeCgC-SVqkvAmuXnMMBE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cheesecake-facil-con-leche-condensada-2000-4160526441114bf3ad8f3409586a2c8a.jpg" alt="Cheesecake Sin Azúcar">
+      <h3>Cheesecake Sin Azúcar</h3>
+      <p>Suave, cremoso y delicioso. Disfruta sin culpa.</p>
+      <div class="precio">$47.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Cheesecake Sin Azúcar', 47000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Pastelería Tradicional">
+      <img src="https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2024/06/EMPANADA-DE-MANZANA.jpg" alt="Empanada de Manzana">
+      <h3>Empanada de Manzana</h3>
+      <p>Pastelería rellena de manzanas especiadas.</p>
+      <div class="precio">$3.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Empanada de Manzana', 3000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Pastelería Tradicional">
+      <img src="https://imag.bonviveur.com/foto-de-la-tarta-de-santiago.jpg" alt="Tarta de Santiago">
+      <h3>Tarta de Santiago</h3>
+      <p>Tradicional tarta española con almendras.</p>
+      <div class="precio">$6.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Tarta de Santiago', 6000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Sin Gluten">
+      <img src="https://images.cookforyourlife.org/wp-content/uploads/2020/06/Dark-Chocolate-Brownies-shutterstock_112430981.jpg" alt="Brownie Sin Gluten">
+      <h3>Brownie Sin Gluten</h3>
+      <p>Brownie rico y denso, sin gluten.</p>
+      <div class="precio">$4.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Brownie Sin Gluten', 4000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Sin Gluten">
+      <img src="https://juanllorca.com/wp-content/uploads/2020/05/pan-sin-gluten-receta.jpg" alt="Pan Sin Gluten">
+      <h3>Pan Sin Gluten</h3>
+      <p>Suave y esponjoso. Ideal para sándwiches.</p>
+      <div class="precio">$3.500 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Pan Sin Gluten', 3500)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Vegana">
+      <img src="https://happyvegannie.com/wp-content/uploads/2022/01/blog-img-6234-web.jpg" alt="Torta Vegana de Chocolate">
+      <h3>Torta Vegana de Chocolate</h3>
+      <p>Húmeda y deliciosa, hecha sin productos animales.</p>
+      <div class="precio">$50.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Vegana de Chocolate', 50000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Productos Vegana">
+      <img src="https://cdn0.uncomo.com/es/posts/1/1/7/como_hacer_galletas_de_avena_32711_orig.jpg" alt="Galletas Veganas de Avena">
+      <h3>Galletas Veganas de Avena</h3>
+      <p>Crujientes y sabrosas, perfectas para un snack.</p>
+      <div class="precio">$4.500 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Galletas Veganas de Avena', 4500)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Tortas Especiales">
+      <img src="https://yanubapasteleria.com/wp-content/uploads/2022/01/Nuevo-proyecto-23.jpg" alt="Torta Especial de Cumpleaños">
+      <h3>Torta Especial de Cumpleaños</h3>
+      <p>Personalizada para cualquier celebración.</p>
+      <div class="precio">$55.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Especial de Cumpleaños', 55000)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div class="producto" data-categoria="Tortas Especiales">
+      <img src="https://cdn0.matrimonio.com.pe/article-vendor/6500/original/1280/jpg/torta-3_11_116500.jpeg" alt="Torta Especial de Boda">
+      <h3>Torta Especial de Boda</h3>
+      <p>Elegante torta para celebrar un día inolvidable.</p>
+      <div class="precio">$60.000 CLP</div>
+      <div class="actions">
+        <div class="actions-top-row">
+          <a href="#" class="btn">Comprar</a>
+          <button type="button" class="btn">Personalizar</button>
+        </div>
+        <a href="#" class="btn" onclick="agregarAlCarrito('Torta Especial de Boda', 60000)">Agregar al Carrito</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="carrito-container" id="carrito-container">
+    <div class="carrito-header">
+      <h2>Carrito de Compras</h2>
+      <button class="close-carrito" onclick="toggleCarrito()">X</button>
+    </div>
+    <ul id="lista-carrito"></ul>
+    <div class="carrito-footer">
+      <p>Total: <span id="total-carrito">$0 CLP</span></p>
+    </div>
+  </div>
+  
+  <script>
+    // --- Filtro de Categorías ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const filtro = document.getElementById('filtro-categoria');
+      const productos = document.querySelectorAll('.producto');
+
+      filtro.addEventListener('change', (event) => {
+        const categoriaSeleccionada = event.target.value;
+
+        productos.forEach(producto => {
+          const categoriaProducto = producto.getAttribute('data-categoria');
+          if (categoriaSeleccionada === 'todos' || categoriaProducto === categoriaSeleccionada) {
+            producto.classList.remove('hidden');
+          } else {
+            producto.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // --- Carrito de Compras ---
+    let sumaTotal = 0;
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalCarrito = document.getElementById('total-carrito');
+    const carritoContainer = document.getElementById('carrito-container');
+
+    function toggleCarrito() {
+        carritoContainer.classList.toggle('visible');
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      const nuevoItem = document.createElement('li');
+      nuevoItem.classList.add('item-carrito');
+      const itemId = `item-${Date.now()}-${Math.random().toString(36).substring(7)}`;
+      nuevoItem.id = itemId;
+      
+      nuevoItem.innerHTML = `
+        <span class="nombre-item">${nombre}</span>
+        <span class="precio-item">$${precio.toLocaleString('es-CL')} CLP</span>
+        <button class="btn-quitar" onclick="quitarDeCarrito('${itemId}', ${precio})">Quitar</button>
+      `;
+
+      listaCarrito.appendChild(nuevoItem);
+
+      sumaTotal += precio;
+      actualizarTotalCarrito();
+
+      if (!carritoContainer.classList.contains('visible')) {
+        toggleCarrito();
+      }
+    }
+
+    function quitarDeCarrito(itemId, precio) {
+      const itemAEliminar = document.getElementById(itemId);
+      if (itemAEliminar) {
+        itemAEliminar.remove();
+        sumaTotal -= precio;
+        actualizarTotalCarrito();
+      }
+    }
+
+    function actualizarTotalCarrito() {
+      totalCarrito.textContent = `$${sumaTotal.toLocaleString('es-CL')} CLP`;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
